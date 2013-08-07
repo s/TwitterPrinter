@@ -51,7 +51,7 @@ $ python app.py
 
 ##Screen Shots
 
-![View Screen Shot](https://raw.github.com/saidozcan/InstagramPrinter/master/screenshots/twitter.png)
+![View Screen Shot](https://github.com/s/TwitterPrinter/blob/master/screenshots/twitter.png?raw=true)
 
 ##TO-DO
 ->Log files.
