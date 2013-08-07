@@ -26,9 +26,9 @@ $ python app.py
 
 ##Configuration (config.yaml)  
   	<code>consumerKey      </code>   : Instagram api consumer key.<br/>
-	<code>consumerSecret    </code>  : Instagram api consumer secret.<br/>
-	<code>accessToken        </code> : Instagram api access token.<br/>
-	<code>accessTokenSecret  </code> : Instagram api access token secret.<br/>
+	  <code>consumerSecret    </code>  : Instagram api consumer secret.<br/>
+	  <code>accessToken        </code> : Instagram api access token.<br/>
+	  <code>accessTokenSecret  </code> : Instagram api access token secret.<br/>
   	<code>delayTime        </code>   : Delay time between each api request. Default: <code>30</code>(seconds)<br/>	
   	<code>pageTitle        </code>   : Page title of generated html file. Default: <code>InstagramPrinter</code><br/>
   	<code>searchHashtag    </code>   : Hashtag to search. Default:<code>TwitterPrinter</code><br/>	

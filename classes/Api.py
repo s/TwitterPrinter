@@ -162,14 +162,6 @@ class Api:
 	# @return void
 	##################
 	def save_data_as_html(self, data ):
-
-		#name surname
-
-		#tweet text
-
-		#hashtag
-
-		#all links
 		
 		print '>>TwitterPrinter: Will Generate HTML if not exists before'	
 
@@ -230,6 +222,10 @@ class Api:
 
 			replaceUserMentions = {}
 
+			replaceUrls = {}
+
+			
+
 			for hashtag in data['entities']['hashtags']:				
 
 				hashtag['text'] = '#' + hashtag['text']
@@ -242,6 +238,13 @@ class Api:
 
 				replaceUserMentions.update({ user_mention['screen_name'] : '<span class=\'hrefColor\'>' + user_mention['screen_name'] + '</span>' })
 
+			for url in data['entities']['urls']:
+
+				replaceUrls.update({ url['url'] : '<span class=\'hrefColor\'>' + url['url'] + '</span>' })				
+
+
+			print replaceUrls
+
 			for key in replaceHashtags:
 
 				tweetText = tweetText.replace( key, replaceHashtags[key] )			
@@ -249,6 +252,11 @@ class Api:
 			for key in replaceUserMentions:
 
 				tweetText = tweetText.replace( key, replaceUserMentions[key] )
+
+			for key in replaceUrls:
+
+				tweetText = tweetText.replace( key, replaceUrls[key] )
+
 
 			tweetText = tweetText.replace( originalTweetText, tweetText )
 
