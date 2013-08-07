@@ -242,7 +242,9 @@ class Api:
 
 				mediaBlock = mediaBlock.replace( '{$photoHeight}', str( media['sizes']['small']['h'] ) )
 
-				
+				#print tweetText[media['indices'][0]:media['indices'][1]]
+
+				tweetText = tweetText.replace( media['url'], '<span class=\'hrefColor\'>' + media['url'] + '</span>' )
 
 			else:
 

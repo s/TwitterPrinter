@@ -1,0 +1,145 @@
+{
+   u'contributors':None,
+   u'truncated':False,
+   u'text':   u'#TwitterPrinter is going to be here! http://t.co/bzUdXcWWq3',
+   u'in_reply_to_status_id':None,
+   u'id':365168237673070593,
+   u'favorite_count':0,
+   u'source':u'web',
+   u'retweeted':False,
+   u'coordinates':None,
+   u'entities':{
+      u'symbols':[
+
+      ],
+      u'user_mentions':[
+
+      ],
+      u'hashtags':[
+         {
+            u'indices':[
+               0,
+               15
+            ],
+            u'text':u'TwitterPrinter'
+         }
+      ],
+      u'urls':[
+
+      ],
+      u'media':[
+         {
+            u'expanded_url':            u'http://twitter.com/saidozcan/status/365168237673070593/photo/1',
+            u'display_url':u'pic.twitter.com/bzUdXcWWq3',
+            u'url':            u'http://t.co/bzUdXcWWq3',
+            u'media_url_https':            u'https://pbs.twimg.com/media/BRFWk9ICQAIx24o.png',
+            u'id_str':u'365168237677264898',
+            u'sizes':{
+               u'small':{
+                  u'h':83,
+                  u'resize':u'fit',
+                  u'w':216
+               },
+               u'large':{
+                  u'h':83,
+                  u'resize':u'fit',
+                  u'w':216
+               },
+               u'medium':{
+                  u'h':83,
+                  u'resize':u'fit',
+                  u'w':216
+               },
+               u'thumb':{
+                  u'h':83,
+                  u'resize':u'crop',
+                  u'w':150
+               }
+            },
+            u'indices':[
+               37,
+               59
+            ],
+            u'type':u'photo',
+            u'id':365168237677264898,
+            u'media_url':            u'http://pbs.twimg.com/media/BRFWk9ICQAIx24o.png'
+         }
+      ]
+   },
+   u'in_reply_to_screen_name':None,
+   u'in_reply_to_user_id':None,
+   u'retweet_count':0,
+   u'id_str':u'365168237673070593',
+   u'favorited':False,
+   u'user':{
+      u'follow_request_sent':False,
+      u'profile_use_background_image':False,
+      u'default_profile_image':False,
+      u'id':64197940,
+      u'verified':False,
+      u'profile_text_color':u'666666',
+      u'profile_image_url_https':      u'https://si0.twimg.com/profile_images/378800000180138445/ccb3ecac1a2c471fe0586ccc0de75274_normal.jpeg',
+      u'profile_sidebar_fill_color':u'252429',
+      u'entities':{
+         u'url':{
+            u'urls':[
+               {
+                  u'url':                  u'http://t.co/KXXAZu5cvW',
+                  u'indices':[
+                     0,
+                     22
+                  ],
+                  u'expanded_url':                  u'http://said.ozcan.co',
+                  u'display_url':u'said.ozcan.co'
+               }
+            ]
+         },
+         u'description':{
+            u'urls':[
+
+            ]
+         }
+      },
+      u'followers_count':8897,
+      u'profile_sidebar_border_color':u'FFFFFF',
+      u'id_str':u'64197940',
+      u'profile_background_color':u'2A1212',
+      u'listed_count':7,
+      u'profile_background_image_url_https':      u'https://si0.twimg.com/profile_background_images/846208510/1cd3d4cf3687d1f40767276433f27bf3.png',
+      u'utc_offset':10800,
+      u'statuses_count':4884,
+      u'description':u'Photograph & Software Developer',
+      u'friends_count':1077,
+      u'location':u'',
+      u'profile_link_color':u'2FC2EF',
+      u'profile_image_url':      u'http://a0.twimg.com/profile_images/378800000180138445/ccb3ecac1a2c471fe0586ccc0de75274_normal.jpeg',
+      u'following':False,
+      u'geo_enabled':True,
+      u'profile_banner_url':      u'https://pbs.twimg.com/profile_banners/64197940/1375893584',
+      u'profile_background_image_url':      u'http://a0.twimg.com/profile_background_images/846208510/1cd3d4cf3687d1f40767276433f27bf3.png',
+      u'screen_name':u'saidozcan',
+      u'lang':u'en',
+      u'profile_background_tile':False,
+      u'favourites_count':345,
+      u'name':u'Said \xd6zcan',
+      u'notifications':False,
+      u'url':      u'http://t.co/KXXAZu5cvW',
+      u'created_at':      u'Sun Aug 09 16:01:23      +0000 2009',
+      u'contributors_enabled':False,
+      u'time_zone':u'Istanbul',
+      u'protected':False,
+      u'default_profile':False,
+      u'is_translator':False
+   },
+   u'geo':None,
+   u'in_reply_to_user_id_str':None,
+   u'possibly_sensitive':False,
+   u'lang':u'en',
+   u'created_at':   u'Wed Aug 07 17:51:07   +0000 2013',
+   u'in_reply_to_status_id_str':None,
+   u'place':None,
+   u'metadata':{
+      u'iso_language_code':u'en',
+      u'result_type':u'recent'
+   }
+}
