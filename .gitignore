@@ -4,4 +4,4 @@
 
 /outputs/logs/*
 
-config.yaml
+*.yaml
