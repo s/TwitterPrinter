@@ -3,3 +3,5 @@
 /outputs/views/*
 
 /outputs/logs/*
+
+config.yaml

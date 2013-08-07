@@ -1,0 +1,22 @@
+#################################################
+# config.yaml
+# 01 Aug 2013
+# Said ÖZCAN									
+# Twitter Printer
+#################################################
+
+consumerKey: ''
+
+consumerSecret: ''
+
+accessToken: ''
+
+accessTokenSecret: ''
+
+delayTime: 30.0
+
+pageTitle: 'TwitterPrinter'
+
+searchHashtag: 'TwitterPrinter'
+
+templateFileName: 'main.html'
