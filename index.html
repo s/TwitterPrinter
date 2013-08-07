@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>TwitterPrinter by s</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/s/TwitterPrinter">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>TwitterPrinter</h1>
+            <h2>A Python application that prints tweets</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/s/TwitterPrinter/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/s/TwitterPrinter/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>
+<a name="twitterprinter" class="anchor" href="#twitterprinter"><span class="octicon octicon-link"></span></a>TwitterPrinter</h1>
+
+<p>A Python application that searchs and prints Twitter tweets with the given hashtag.</p>
+
+<p>Application first connects to Twitter Api and fetchs matched tweet datas.<br></p>
+
+<p>Then clones the template <code>main.html</code> and replaces tags with returning data from Api.</p>
+
+<h2>
+<a name="installation-and-run" class="anchor" href="#installation-and-run"><span class="octicon octicon-link"></span></a>Installation and Run</h2>
+
+<pre><code>$ git clone git://github.com/s/TwitterPrinter.git ~/TwitterPrinter
+$ cd ~/TwitterPrinter
+$ python app.py
+</code></pre>
+
+<h2>
+<a name="skeletal" class="anchor" href="#skeletal"><span class="octicon octicon-link"></span></a>Skeletal</h2>
+
+<p></p><h3>
+<a name="classes-core-python-files" class="anchor" href="#classes-core-python-files"><span class="octicon octicon-link"></span></a>Classes: (Core python files)</h3><br><code>Api.py</code> : Handles Twitter Api connection and generates html files.<br><p></p><h3>
+<a name="output-public-data" class="anchor" href="#output-public-data"><span class="octicon octicon-link"></span></a>Output: (Public data)</h3><br><code>assets</code>          : Contains css and font files.<br><code>templates</code>        : Contains original templates.<br><code>views</code>           : Contains generated views. Generated views will be in the folder for e.g <code>views/#TwitterPrinter</code><br><h2>
+<a name="configuration-configyaml" class="anchor" href="#configuration-configyaml"><span class="octicon octicon-link"></span></a>Configuration (config.yaml)</h2>
+
+<pre><code>&lt;code&gt;consumerKey      &lt;/code&gt;   : Instagram api consumer key.&lt;br/&gt;
+&lt;code&gt;consumerSecret    &lt;/code&gt;  : Instagram api consumer secret.&lt;br/&gt;
+&lt;code&gt;accessToken        &lt;/code&gt; : Instagram api access token.&lt;br/&gt;
+&lt;code&gt;accessTokenSecret  &lt;/code&gt; : Instagram api access token secret.&lt;br/&gt;
+&lt;code&gt;delayTime        &lt;/code&gt;   : Delay time between each api request. Default: &lt;code&gt;30&lt;/code&gt;(seconds)&lt;br/&gt;  
+&lt;code&gt;pageTitle        &lt;/code&gt;   : Page title of generated html file. Default: &lt;code&gt;InstagramPrinter&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;searchHashtag    &lt;/code&gt;   : Hashtag to search. Default:&lt;code&gt;TwitterPrinter&lt;/code&gt;&lt;br/&gt;  
+&lt;code&gt;templateFileName &lt;/code&gt;   : Name of template file. Default: &lt;code&gt;main.html&lt;/code&gt;&lt;br/&gt;
+</code></pre>
+
+<h2>
+<a name="view-template-tags" class="anchor" href="#view-template-tags"><span class="octicon octicon-link"></span></a>View Template Tags:</h2>
+
+<p><code>{$title}</code>                    : Page Title<br><code>{$photoUrl}</code>                 : Url of photo<br><code>{$photoWidth}</code>               : Width of photo<br><code>{$photoHeight}</code>              : Height of photo<br><code>{$postOwnerAvatar}</code>          : Avatar of post owner<br><code>{$postOwnerUsername}</code>        : Screen username of post owner<br><code>{$postOwnerName}</code>            : Name of post owner<br><code>{$postDate}</code>                 : Create date of post<br><code>{$photo} .. {/$photo}</code>       : Media block<br></p>
+
+<h2>
+<a name="screen-shots" class="anchor" href="#screen-shots"><span class="octicon octicon-link"></span></a>Screen Shots</h2>
+
+<p><img src="https://github.com/s/TwitterPrinter/blob/master/screenshots/twitter.png?raw=true" alt="View Screen Shot"></p>
+
+<h2>
+<a name="to-do" class="anchor" href="#to-do"><span class="octicon octicon-link"></span></a>TO-DO</h2>
+
+<p>-&gt;Log files.</p>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/s">s</a> can be found on <a href="https://github.com/s/TwitterPrinter">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
