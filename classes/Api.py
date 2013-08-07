@@ -216,7 +216,7 @@ class Api:
 
 			template = template.replace( '{$postOwnerName}', user['name'] )
 
-			template = template.replace( '{$userAvatar}', user['profile_image_url'])
+			template = template.replace( '{$postOwnerAvatar}', user['profile_image_url'])
 
 			convertedDate = time.strftime('%H:%M - %m %b %Y ', time.strptime( data['created_at'],'%a %b %d %H:%M:%S +0000 %Y') )			
 
