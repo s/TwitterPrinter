@@ -1,0 +1,73 @@
+<html>
+	<head>
+		<title>{$title}</title>
+		<link type="text/css" rel="stylesheet" href="../../assets/css/app.css" />
+		<link rel="Shortcut Icon" type="image/x-icon" href="../../assets/img/favicon.ico" />
+	</head>
+
+	<body>
+		<div class='navbar'>
+			<div class='page-title'>{$title}</div>
+		</div>
+
+		<div class='content'>
+
+			<div class='tweet'>
+				
+				<div class='user-info'>
+
+					<div class='user-info-avatar'>						
+
+						<img
+							src='{$userAvatar}'
+							width='50'
+							height='50'
+						/>
+
+					</div>
+
+					<div class='user-info-text'>
+
+						<div class='user-info-name'>
+							{$postOwnerName}
+						</div>
+
+						<div class='user-info-username'>
+							{$postOwnerUsername}
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class='tweet-text'>
+
+					{$tweetText}
+
+				</div>
+
+				<div class='tweet-picture' >
+
+					{$photo}
+
+					<img
+						src='{$photoUrl}'
+						width='{$photoWidth}'
+						height='{$photoHeight}'
+					/>
+
+					{/$photo}
+
+				</div>
+
+				<div class='seperator'></div>
+
+				<div class='tweet-date'>
+					{$tweetDate}
+				</div>
+
+			</div>
+
+		</div>
+	</body>
+</html>

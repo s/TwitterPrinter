@@ -17,4 +17,6 @@ delayTime: 30.0
 
 pageTitle: 'TwitterPrinter'
 
-searchHashtag: 'pythontwitterapitest'
+searchHashtag: 'TwitterPrinter'
+
+templateFileName: 'main.html'

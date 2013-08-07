@@ -98,11 +98,26 @@ class Api:
 	# @return void
 	##################
 	def connect_to_api(self):
-		t = Twitter(auth=OAuth(self.accessToken, self.accessTokenSecret, self.consumerKey, self.consumerSecret))
 
-		data = t.search.tweets(q=self.searchHashtag)
+		print '>>TwitterPrinter: Connecting To Api'
 		
-		print data
+		self.apiConnectionFlag = 1
+
+		try:
+			
+			t = Twitter(auth=OAuth(self.accessToken, self.accessTokenSecret, self.consumerKey, self.consumerSecret))
+
+			#print self.searchHashtag
+
+			data = t.search.tweets(q=self.searchHashtag)
+
+			self.process_data( data['statuses'] )
+		
+		except Exception as exc:
+
+			print '>>TwitterPrinter: An Exception Raised During Connecting To Api:' + str(exc)
+
+			sys.exit(0)
 
 
 
@@ -113,8 +128,28 @@ class Api:
 	# @param self
 	# @return void
 	##################
-	def process_data(self):
-		pass
+	def process_data(self, response):
+		
+		print '>>TwitterPrinter: Processing Data'
+
+		try:
+
+			if len( response ):
+
+				for r in response:
+						
+					self.save_data_as_html( r )
+
+			else: 
+				
+				print '>>TwitterPrinter: No tweets fetched'
+
+		except Exception as exc:
+
+			print '>>TwitterPrinter: An Exception Raised During process_data:' + str(exc)
+
+			sys.exit(0)
+				
 
 
 
@@ -126,9 +161,110 @@ class Api:
 	# @param self
 	# @return void
 	##################
-	def save_data_as_html(self):
-		pass
+	def save_data_as_html(self, data ):
+		
+		print '>>TwitterPrinter: Will Generate HTML if not exists before'	
 
+		self.apiConnectionFlag = 0
+
+		fileName = str( data['id'] ) + '.html'
+
+		source = self.outputDirectory + 'templates/' + self.templateFileName
+		
+		destination = self.outputDirectory + 'views/#' + self.searchHashtag + '/'
+
+		if not os.path.exists( destination ):
+			os.makedirs( destination )
+			os.chmod( destination, 0777)
+
+		#user data
+		user = data['user']
+		
+		if True == os.path.exists( destination + fileName):
+			
+			print '>>TwitterPrinter: File ' + fileName + ' already exists. Will pass this time.'		
+			
+			return 
+		else:
+			
+			try:
+				
+				with open( source ) as file:
+
+					template = file.read()
+
+			except Exception as exc:
+
+				print '>>TwitterPrinter: An Exception Raised During generating view:' + str(exc)
+
+				sys.exit(0)
+			
+			
+			template = template.replace( '{$title}', self.pageTitle )
+
+			template = template.replace( '{$postOwnerUsername}', '@' + user['screen_name'] )
+
+			template = template.replace( '{$postOwnerName}', user['name'] )
+
+			template = template.replace( '{$userAvatar}', user['profile_image_url'])
+
+			template = template.replace( '{$tweetDate}', data['created_at'] )
+
+			tweetText = data['text']
+
+			originalTweetText = tweetText
+
+			for hashtag in data['entities']['hashtags']:
+
+				hashtagIndices = hashtag['indices']
+
+				hashtag['text'] = '#' + hashtag['text']
+
+				tweetText = tweetText.replace( tweetText[hashtagIndices[0]:hashtagIndices[1]], '<span class=\'hrefColor\'>' + hashtag['text'] + '</span>' )
+
+			tweetText = tweetText.replace( originalTweetText, tweetText )
+
+			startOfMedia = template.index( '{$photo}' ) + len( '{$photo}' )
+
+			endOfMedia = template.index( '{/$photo}', startOfMedia )
+
+			mediaBlock = template[ startOfMedia:endOfMedia ]
+
+			originalMediaBlock = mediaBlock
+
+			if 'media' in data['entities']:
+
+				media = data['entities']['media'][0]
+
+				mediaBlock = mediaBlock.replace( '{$photoUrl}', media['media_url'] )
+
+				mediaBlock = mediaBlock.replace( '{$photoWidth}', str( media['sizes']['small']['w'] ) )
+
+				mediaBlock = mediaBlock.replace( '{$photoHeight}', str( media['sizes']['small']['h'] ) )
+
+				
+
+			else:
+
+				mediaBlock = ''
+				
+			template = template.replace( '{$photo}' + originalMediaBlock + '{/$photo}' , mediaBlock )
+
+			template = template.replace( '{$tweetText}', tweetText )
+
+			newFilePath = destination + str(data['id']) + '.html'
+			
+			if True == os.path.exists(newFilePath):
+				os.remove(newFilePath)
+				
+			
+			newFile = open( newFilePath, 'w+' )
+			
+			newFile.write( template.encode('utf8') )
+			
+			newFile.close()
+
+			print '>>TwitterPrinter: ' + str(data['id']) + '.html has been generated.' 
 
 
 
@@ -182,6 +318,8 @@ class Api:
 			self.pageTitle = data['pageTitle']
 
 			self.searchHashtag = data['searchHashtag']
+
+			self.templateFileName = data['templateFileName']
 	
 			configurations.close()
 		

@@ -1,0 +1,111 @@
+@font-face{
+	font-family: Helvetica;
+	src: url('../font/HelveticaNeue.ttf');
+}
+html{
+	font-family: Helvetica, serif;
+}
+body{
+	background-color: #2a1212;	
+	width: 100%;
+	min-width: 100%;
+	font-family: "Helvetica Neue",Arial,sans-serif;
+}
+.navbar{	
+	position: fixed;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	background-color: #2d2d2d;
+	background-position: 50% 50%;
+    border-bottom: 1px solid rgba(4, 40, 71, 0.8);
+    box-shadow: 0 1px 0 rgba(111, 151, 182, 0.5) inset, 0 -1px 0 rgba(111, 151, 182, 0.2) inset, 0 1px 1px rgba(0, 0, 0, 0.2);
+    height: 33px;			    
+    z-index: 100;	
+    padding-top: 5px;
+    padding-bottom: 5px;			
+    color: #fff;
+    font-family: Helvetica, serif;
+}
+.navbar:after{
+	content: ''
+}
+.page-title{
+	font-size: 22px;
+	text-align: center;
+	margin-top: 5px;
+}
+.border{
+	border:1px solid #000;
+}
+.content{
+	width: 570px;
+	height: 102%;
+	background-color: rgba(106,89,89,0.6);
+	margin:0 auto;
+	padding: 20px;
+}
+.content .tweet{
+	margin-top: 30px;
+	width: 493px;
+	height: auto;
+	background-color: #fff;
+	border-radius: 5px;
+	padding-top: 40px;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-bottom: 40px;
+	clear: both;
+}
+.user-info{
+	width:100%;
+	height: 50px;
+	margin-bottom: 30px;
+}
+.user-info-avatar{
+	float: left;
+	width: 50px;
+}
+.user-info-avatar img{
+	border-radius: 5px;
+}
+.user-info-text{
+	float: left;
+	margin-left: 10px;
+	margin-top: 5px;
+}
+.user-info-name{
+	font-size: 20px;
+	font-weight: bold;
+	color: #663333;
+}
+.user-info-username{
+	font-size: 15px;
+	color: #a29999;
+}
+.tweet-text{
+	margin-bottom: 10px;
+	height: 70px;
+	font-size: 22px;
+	font-family: Georgia,"Times New Roman",serif;
+}
+.tweet-picture{
+	height: auto;
+	max-width: 493px;
+	margin-bottom: 20px;
+}
+.tweet-picture img{
+	max-width: 493px;
+}
+.seperator{
+	border-bottom: 1px solid #e8e8e8;
+	height: 5px;
+}
+.tweet-date{
+	margin-top: 10px;
+	color: #999;
+	font-size: 13px;
+}
+.hrefColor{
+	color:#2fc2ef;
+}
