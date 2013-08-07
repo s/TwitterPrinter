@@ -85,7 +85,7 @@ body{
 }
 .tweet-text{
 	margin-bottom: 10px;
-	height: 70px;
+	height: auto;
 	font-size: 22px;
 	font-family: Georgia,"Times New Roman",serif;
 }

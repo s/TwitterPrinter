@@ -9,7 +9,7 @@
 
 from twitter import *
 
-import httplib, urllib2, json, time, sys, shutil, os, stat, re, datetime, yaml
+import httplib, urllib2, json, time, sys, shutil, os, stat, re, datetime, yaml, codecs, time, locale
 
 class Api:
 
@@ -66,8 +66,8 @@ class Api:
 	# @param self
 	# @return void
 	##################
-	def __init__(self):
-		
+	def __init__(self):		
+
 		self.get_configurations()		
 
 		if True is self.check_network():
@@ -162,8 +162,18 @@ class Api:
 	# @return void
 	##################
 	def save_data_as_html(self, data ):
+
+		#name surname
+
+		#tweet text
+
+		#hashtag
+
+		#all links
 		
 		print '>>TwitterPrinter: Will Generate HTML if not exists before'	
+
+		#print data
 
 		self.apiConnectionFlag = 0
 
@@ -202,25 +212,43 @@ class Api:
 			
 			template = template.replace( '{$title}', self.pageTitle )
 
-			template = template.replace( '{$postOwnerUsername}', '@' + user['screen_name'] )
+			template = template.replace( '{$postOwnerUsername}', '@' + user['screen_name'] )		
 
 			template = template.replace( '{$postOwnerName}', user['name'] )
 
 			template = template.replace( '{$userAvatar}', user['profile_image_url'])
 
-			template = template.replace( '{$tweetDate}', data['created_at'] )
+			convertedDate = time.strftime('%H:%M - %m %b %Y ', time.strptime( data['created_at'],'%a %b %d %H:%M:%S +0000 %Y') )			
+
+			template = template.replace( '{$tweetDate}', convertedDate )
 
 			tweetText = data['text']
 
-			originalTweetText = tweetText
+			originalTweetText = tweetText			
 
-			for hashtag in data['entities']['hashtags']:
+			replaceHashtags = {}
 
-				hashtagIndices = hashtag['indices']
+			replaceUserMentions = {}
+
+			for hashtag in data['entities']['hashtags']:				
 
 				hashtag['text'] = '#' + hashtag['text']
 
-				tweetText = tweetText.replace( tweetText[hashtagIndices[0]:hashtagIndices[1]], '<span class=\'hrefColor\'>' + hashtag['text'] + '</span>' )
+				replaceHashtags.update({ hashtag['text'] : '<span class=\'hrefColor\'>' + hashtag['text'] + '</span>' })
+
+			for user_mention in data['entities']['user_mentions']:
+
+				user_mention['screen_name'] =  '@' + user_mention['screen_name']
+
+				replaceUserMentions.update({ user_mention['screen_name'] : '<span class=\'hrefColor\'>' + user_mention['screen_name'] + '</span>' })
+
+			for key in replaceHashtags:
+
+				tweetText = tweetText.replace( key, replaceHashtags[key] )			
+
+			for key in replaceUserMentions:
+
+				tweetText = tweetText.replace( key, replaceUserMentions[key] )
 
 			tweetText = tweetText.replace( originalTweetText, tweetText )
 
@@ -242,8 +270,6 @@ class Api:
 
 				mediaBlock = mediaBlock.replace( '{$photoHeight}', str( media['sizes']['small']['h'] ) )
 
-				#print tweetText[media['indices'][0]:media['indices'][1]]
-
 				tweetText = tweetText.replace( media['url'], '<span class=\'hrefColor\'>' + media['url'] + '</span>' )
 
 			else:
@@ -260,9 +286,9 @@ class Api:
 				os.remove(newFilePath)
 				
 			
-			newFile = open( newFilePath, 'w+' )
-			
-			newFile.write( template.encode('utf8') )
+			newFile = codecs.open( newFilePath, "w", "utf8")
+
+			newFile.write( template )
 			
 			newFile.close()
 
