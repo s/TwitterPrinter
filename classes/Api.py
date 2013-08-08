@@ -243,8 +243,6 @@ class Api:
 				replaceUrls.update({ url['url'] : '<span class=\'hrefColor\'>' + url['url'] + '</span>' })				
 
 
-			print replaceUrls
-
 			for key in replaceHashtags:
 
 				tweetText = tweetText.replace( key, replaceHashtags[key] )			
